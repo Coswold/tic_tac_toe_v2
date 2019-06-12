@@ -20,7 +20,7 @@ class GameBoard (object):
         for win in self.wins:
             i = 0
             while i < len(win):
-                if win[i]:
+                if win[i] >= 0 and win[i] <= 8:
                     i += 1
                     if i == 2:
                         return True
@@ -30,8 +30,10 @@ class GameBoard (object):
         return False
 
     def check_tie(self):
-        for pos in self.position:
-            if pos.isalpha() == False:
+        i = 0
+        while i < len(self.position):
+            if self.position[i] == i:
                 return False
+            i += 1
 
         return True
