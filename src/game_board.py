@@ -11,7 +11,7 @@ class GameBoard (object):
         self.spaces = [1, 3, 4, 5, 7]
 
     def is_valid(self, move):
-        if self.position[move] == str(move):
+        if self.position[move] == int(move):
             return True
 
         return False
@@ -20,7 +20,7 @@ class GameBoard (object):
         for win in self.wins:
             i = 0
             while i < len(win):
-                if win[i].isalpha():
+                if win[i]:
                     i += 1
                     if i == 2:
                         return True
