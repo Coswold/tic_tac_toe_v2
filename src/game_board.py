@@ -11,21 +11,27 @@ class GameBoard (object):
         self.spaces = [1, 3, 4, 5, 7]
 
     def is_valid(self, move):
-        if self.position[move] == int(move):
+        if self.position[int(move)] == int(move):
             return True
 
         return False
+
+    def clear(self):
+        i = 0
+        while i < len(self.position):
+            self.position[i] = i
+            i += 1
 
     def check_win(self):
         for win in self.wins:
             i = 0
             while i < len(win):
                 if win[i] >= 0 and win[i] <= 8:
+                    break
+                else:
                     i += 1
                     if i == 2:
                         return True
-                else:
-                    break
 
         return False
 

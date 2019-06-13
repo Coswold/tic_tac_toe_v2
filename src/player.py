@@ -5,6 +5,13 @@ class Player(object):
     def __init__(self, piece):
         self.piece = piece
 
+    def move(self, board):
+        m = input('Choose Open Position:\n')
+        if board.is_valid(m):
+            return m
+        else:
+            self.move(board)
+
 class EasyCom(Player):
 
     def __init__(self, piece):
