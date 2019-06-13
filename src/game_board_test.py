@@ -1,5 +1,6 @@
 from game_board import GameBoard
 from player import Player, EasyCom
+from logger import Logger
 import unittest
 
 class GameTest(unittest.TestCase):
@@ -21,8 +22,7 @@ class GameTest(unittest.TestCase):
         gb.position[8] = 'X'
         assert gb.check_tie() == True
 
-    def test_easycom(self):
+    def test_print(self):
         gb = GameBoard()
-        player = EasyCom('X')
-        m = player.move(gb)
-        assert m >=0 and m <= 8
+        logger = Logger()
+        logger.print_board(gb)
