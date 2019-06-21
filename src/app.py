@@ -7,7 +7,7 @@ def run_game():
     logger = Logger()
     gb = GameBoard()
     p1 = Player('X')
-    game = Game(gb, p1)
+    game = Game(logger, gb, p1)
     game.choose_player()
     game.play()
 
